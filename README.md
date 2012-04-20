@@ -33,9 +33,9 @@ La forma mas facil es descargarse el proyecto completo desde esta url https://gi
 La otra forma, es descargaselo usando git para luego hacer un fork, y poder compartir mejoras. 
 
 
-'''
+```
 git clone git@github.com:pablofmorales/Curso-interactivo-de-ZF.git
-'''
+```
 
 
 
