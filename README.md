@@ -38,4 +38,46 @@ git clone git@github.com:pablofmorales/Curso-interactivo-de-ZF.git
 ```
 
 
+### Configuracion del proyecto. 
+
+Una vez descargado el proyecto necesitamos configurar nuestro ambiente de trabajo. 
+
+Para eso vamos a ir a la configuracion de nuestro apache, y vamos a agregar un virtual host  para este proyecto. 
+
+El virtualhost deberia tener un codigo parecido al siguiente
+
+```
+<VirtualHost *:80>
+   DocumentRoot "/var/www/html/cursozf/public"
+   ServerName cursozf.local
+
+   # This should be omitted in the production environment
+   SetEnv APPLICATION_ENV development
+
+   <Directory "/var/www/html/cursozf/public">
+       Options Indexes MultiViews FollowSymLinks
+       AllowOverride All
+       Order allow,deny
+       Allow from all
+   </Directory>
+
+</VirtualHost>
+
+```
+
+Tengamos en cuenta que en Directory "..." vamos a poner el path de nuestro proyecto, mas la carpeta public que es donde zf guarda el archivo index.php que sirve de entrada a nuestra aplicacion. Lo mismo en DocumentRoot
+
+
+Una vez agregado el vhost a nuestro apache, reiniciamos el apache. 
+
+solo falta decirle a nuestra pc que cuando entremos en el browser la url http://cursozf.local apunte a nuestro apache, para eso vamos a editar el archivo /etc/hosts en linux, y el archivo c:\windows\system32\driver\etc\host en liwindows y vamos a agregar la siguiente linea
+
+```
+127.0.0.1   cursozf.local
+```
+
+Guardamos, y como ultimo paso vamos a nuestro browser y ponemos la url de nuestro proyecto http://cursozf.local 
+
+
+Y listo :)
 
