@@ -1,0 +1,53 @@
+<div class='form-horizontal'>
+	<div id="users-form-errors" class='alert alert-error' style="display:none;">
+		<?php $errorMessages = $this->element->getMessages();
+			foreach($errorMessages as $field => $errors) {
+				echo sprintf("%s Errors: %s", $field, $this->formErrors($errors));
+				}?>
+	</div>
+	<div id="users-form-success" class='alert alert-success' style="display:none;">
+		<p>Successfully Created Post</p>
+	</div>
+	<form class="form-horizontal">
+		<fieldset>
+			<legend>Create a Post</legend>
+			<div class="control-group">
+				<label class="control-label" for="name">Title</label>
+				<div class="controls">
+					<?php echo $this->element->getElement('title');?>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="email">Category</label>
+				<div class="controls">
+					<?php echo $this->element->getElement('category');?>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="password">Description</label>
+				<div class="controls">
+					<?php echo $this->element->getElement('description');?>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="price">Price</label>
+				<div class="controls">
+					<div class="input-prepend input-append">
+						<span class="add-on">$</span>
+							<?php echo $this->element->getElement('price');?>
+						<span class="add-on">.00</span>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="password">Data Contact:</label>
+				<div class="controls">
+					<?php echo $this->element->getElement('contact_data');?>
+				</div>
+			</div>
+			<div class="form-actions">
+				<?php echo $this->element->getElement('submit');?>
+			</div>
+		</fieldset>
+	</form>
+</div>
