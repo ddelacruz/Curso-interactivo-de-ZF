@@ -1,13 +1,13 @@
 <?php
-class UsersController extends Zend_Controller_Action
+class PostsController extends Zend_Controller_Action
 {
 	public function init()
 	{
 	}
 	
-	public function signupAction()
+	public function newAction()
 	{
-		$form = new Application_Form_Signup();
+		$form = new Application_Form_PostNew();
 		if ($this->getRequest()->isPost()){
 			if ($form->isValid($this->_getAllParams())){
 				echo "<script>
